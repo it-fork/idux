@@ -1,5 +1,4 @@
 import type { VNodeTypes } from 'vue'
-import type { OverlayPlacement, OverlayTrigger } from '@idux/cdk/overlay'
 
 // General
 
@@ -35,12 +34,6 @@ export interface SpaceConfig {
 
 export interface RowConfig {
   wrap: boolean
-}
-
-// Navigation
-export interface DropdownConfig {
-  placement: OverlayPlacement
-  trigger: OverlayTrigger
 }
 
 export type MenuTheme = 'light' | 'dark'
@@ -182,24 +175,6 @@ export interface StatisticConfig {
   formatter: NumFormatter
 }
 
-export interface TooltipConfig {
-  placement: OverlayPlacement
-  trigger: OverlayTrigger
-  showDelay: number
-  hideDelay: number
-  destroyOnHide: boolean
-  autoAdjust: boolean
-}
-
-export interface PopoverConfig {
-  placement: OverlayPlacement
-  trigger: OverlayTrigger
-  showDelay: number
-  hideDelay: number
-  destroyOnHide: boolean
-  autoAdjust: boolean
-}
-
 // Feedback
 export interface MessageConfig {
   duration: number
@@ -257,7 +232,6 @@ export interface GlobalConfig {
   space: SpaceConfig
   row: RowConfig
   // Navigation
-  dropdown: DropdownConfig
   menu: MenuConfig
   subMenu: SubMenuConfig
   pagination: PaginationConfig
@@ -275,8 +249,6 @@ export interface GlobalConfig {
   collapse: CollapseConfig
   image: ImageConfig
   statistic: StatisticConfig
-  tooltip: TooltipConfig
-  popover: PopoverConfig
   steps: StepsConfig
   // Feedback
   message: MessageConfig

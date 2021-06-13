@@ -8,7 +8,6 @@
 import type { MenuProps } from '../types'
 
 import { computed, defineComponent, inject, provide } from 'vue'
-import { ɵDropdownToken } from '@idux/components/dropdown'
 import { menuToken } from '../token'
 import { menuProps } from '../types'
 import { useClasses, useMenuCollapsed, useMenuConfig, useMenuMode, useMenuOpened, useMenuSelected } from './useMenu'
@@ -18,7 +17,7 @@ export default defineComponent({
   props: menuProps,
   emits: ['click', 'update:selectedIds', 'update:openedIds'],
   setup(props: MenuProps) {
-    const dropdownContext = inject(ɵDropdownToken, null)
+    const dropdownContext = inject(Symbol(), null) // todo 移除overlay
 
     const multiple = computed(() => props.multiple)
     const { indent, theme } = useMenuConfig(props)

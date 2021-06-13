@@ -13,7 +13,6 @@ import { IxRow, IxCol } from '@idux/components/grid'
 // import Navigation
 import { IxPagination } from '@idux/components/pagination'
 import { IxAffix } from '@idux/components/affix'
-import { IxDropdown, IxDropdownButton } from '@idux/components/dropdown'
 import { IxMenu, IxMenuItem, IxMenuItemGroup, IxMenuDivider, IxSubMenu } from '@idux/components/menu'
 // import Data Entry
 import { IxForm, IxFormItem, IxFormWrapper } from '@idux/components/form'
@@ -33,8 +32,6 @@ import { IxEmpty } from '@idux/components/empty'
 import { IxImage } from '@idux/components/image'
 import { IxStatistic } from '@idux/components/statistic'
 import { IxTimeline, IxTimelineItem } from '@idux/components/timeline'
-import { IxTooltip } from '@idux/components/tooltip'
-import { IxPopover } from '@idux/components/popover'
 // import Feedback
 import { IxResult } from '@idux/components/result'
 import { IxSpin } from '@idux/components/spin'
@@ -60,8 +57,6 @@ const components = [
   // components Navigation
   IxPagination,
   IxAffix,
-  IxDropdown,
-  IxDropdownButton,
   IxMenu,
   IxMenuItem,
   IxMenuItemGroup,
@@ -97,8 +92,6 @@ const components = [
   IxStatistic,
   IxTimeline,
   IxTimelineItem,
-  IxTooltip,
-  IxPopover,
   // components Feedback
   IxResult,
   IxSpin,

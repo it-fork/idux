@@ -20,14 +20,11 @@ import type {
   BackTopConfig,
   AnchorConfig,
   GlobalConfig,
-  TooltipConfig,
-  PopoverConfig,
   SelectConfig,
   RadioGroupConfig,
   MenuConfig,
   SubMenuConfig,
   StepsConfig,
-  DropdownConfig,
   ListConfig,
   FormConfig,
   PaginationConfig,
@@ -60,10 +57,6 @@ const space = shallowReactive<SpaceConfig>({ size: 'small' })
 const row = shallowReactive<RowConfig>({ wrap: true })
 
 // --------------------- Navigation ---------------------
-const dropdown = shallowReactive<DropdownConfig>({
-  placement: 'bottom-start',
-  trigger: 'hover',
-})
 
 const menu = shallowReactive<MenuConfig>({
   indent: 24,
@@ -158,24 +151,6 @@ const statistic = shallowReactive<StatisticConfig>({
   formatter: numFormatter,
 })
 
-const tooltip = shallowReactive<TooltipConfig>({
-  placement: 'top',
-  trigger: 'hover',
-  showDelay: 100,
-  hideDelay: 100,
-  destroyOnHide: false,
-  autoAdjust: true,
-})
-
-const popover = shallowReactive<PopoverConfig>({
-  placement: 'top',
-  trigger: 'click',
-  showDelay: 100,
-  hideDelay: 100,
-  destroyOnHide: false,
-  autoAdjust: true,
-})
-
 // --------------------- Feedback ---------------------
 const message = shallowReactive<MessageConfig>({
   duration: 3000,
@@ -223,7 +198,6 @@ export const defaultConfig: GlobalConfig = {
   space,
   row,
   // Navigation
-  dropdown,
   menu,
   subMenu,
   pagination,
@@ -241,8 +215,6 @@ export const defaultConfig: GlobalConfig = {
   collapse,
   image,
   statistic,
-  tooltip,
-  popover,
   // Feedback
   message,
   result,

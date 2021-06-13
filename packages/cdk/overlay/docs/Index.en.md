@@ -1,16 +1,16 @@
 ---
-category: components
-type: Navigation
-title: Dropdown
+category: cdk
+type: 
+title: Overlay
 subtitle:
 order: 0
 ---
 
-## When To Use
+
 
 ## API
 
-### ix-dropdown
+### ix-overlay
 
 #### Props
 

@@ -7,7 +7,6 @@
 <script lang="ts">
 import { computed, defineComponent, inject } from 'vue'
 import { IxPropTypes } from '@idux/cdk/utils'
-import { ɵDropdownToken } from '@idux/components/dropdown'
 
 export default defineComponent({
   name: 'IxSubMenuOverlayContent',
@@ -18,7 +17,7 @@ export default defineComponent({
   },
   emits: ['mouseOverlayChang'],
   setup(props, { emit }) {
-    const dropdownContext = inject(ɵDropdownToken, null)
+    const dropdownContext = inject(Symbol(), null) // todo 移除overlay
     const classes = computed(() => {
       return {
         'ix-menu-vertical': true,
