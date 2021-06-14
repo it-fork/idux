@@ -3,5 +3,22 @@
 @tooltip-prefix: ~'@{idux-prefix}-tooltip';
 
 .@{tooltip-prefix} {
-color:#000;
+  position: absolute;
+
+  &-content {
+    max-width: @tooltip-content-max-width;
+    font-size: @tooltip-content-font-size;
+    color: @tooltip-content-color;
+    min-width: @tooltip-content-min-width;
+    min-height: @tooltip-content-min-height;
+    padding: @tooltip-content-padding;
+    background-color: @tooltip-content-background;
+    border-radius: @tooltip-content-border-radius;
+    box-shadow: @tooltip-content-box-shadow;
+  }
+
+  &-arrow {
+    border-width: @tooltip-arrow-size;
+    border-color: transparent @tooltip-content-background @tooltip-content-background transparent;
+  }
 }
