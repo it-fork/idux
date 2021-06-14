@@ -1,4 +1,5 @@
 import { cloneVNode, defineComponent, onMounted, Transition } from 'vue'
+import { kebabCase } from 'lodash'
 import { useOverlay } from '@idux/cdk/overlay'
 import { getFirstValidNode, getSlotNodes } from '@idux/cdk/utils'
 import { IxPortal } from '@idux/cdk/portal'
@@ -21,7 +22,7 @@ export default defineComponent({
       triggerRef,
       triggerEvents,
       visibility,
-      // placement,
+      placement,
       // update,
     } = useOverlay(getOverlayOptions(props))
     const renderValid = useRenderValid()
@@ -30,10 +31,20 @@ export default defineComponent({
 
     onMounted(initialize)
 
-    return { overlayRef, overlayEvents, triggerRef, triggerEvents, visibility, renderValid }
+    return { overlayRef, overlayEvents, triggerRef, triggerEvents, visibility, renderValid, placement }
   },
   render() {
-    const { renderValid, $slots, triggerEvents, overlayEvents, clsPrefix, visibility, visibleTransition } = this
+    const {
+      renderValid,
+      $slots,
+      triggerEvents,
+      overlayEvents,
+      clsPrefix,
+      visibility,
+      visibleTransition,
+      showArrow,
+      placement,
+    } = this
 
     if (!renderValid) {
       return null
@@ -52,7 +63,12 @@ export default defineComponent({
         <IxPortal target={`${clsPrefix}-container`}>
           <Transition name={visibleTransition}>
             {visibility && (
-              <div ref="overlayRef" class={[clsPrefix, 'ix-overlay']} {...overlayEvents}>
+              <div
+                ref="overlayRef"
+                class={[clsPrefix, 'ix-overlay', `ix-overlay-${kebabCase(placement)}`]}
+                {...overlayEvents}
+              >
+                {showArrow && <div class={['ix-overlay-arrow', `${clsPrefix}-arrow`]} />}
                 <div class={`${clsPrefix}-content`}>{overlay}</div>
               </div>
             )}
