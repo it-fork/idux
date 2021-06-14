@@ -1,4 +1,5 @@
 import type { VNodeTypes } from 'vue'
+import type { OverlayPlacement, OverlayTrigger } from '@idux/cdk/overlay'
 
 // General
 
@@ -175,6 +176,15 @@ export interface StatisticConfig {
   formatter: NumFormatter
 }
 
+export interface TooltipConfig {
+  placement: OverlayPlacement
+  trigger: OverlayTrigger
+  showDelay: number
+  hideDelay: number
+  destroyOnHide: boolean
+  autoAdjust: boolean
+}
+
 // Feedback
 export interface MessageConfig {
   duration: number
@@ -250,6 +260,7 @@ export interface GlobalConfig {
   image: ImageConfig
   statistic: StatisticConfig
   steps: StepsConfig
+  tooltip: TooltipConfig
   // Feedback
   message: MessageConfig
   result: ResultConfig

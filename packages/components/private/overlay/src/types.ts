@@ -4,9 +4,9 @@ import type { OverlayScrollStrategy, OverlayPlacement, OverlayTrigger } from '@i
 import { IxExtractPropTypes, IxPropTypes } from '@idux/cdk/utils'
 import { VueTypeDef } from 'vue-types'
 
-const overlayScrollStrategyDef = IxPropTypes.oneOf<OverlayScrollStrategy>(['close', 'reposition', 'none'])
+export const overlayScrollStrategyDef = IxPropTypes.oneOf<OverlayScrollStrategy>(['close', 'reposition', 'none'])
 
-const overlayPlacementDef = IxPropTypes.oneOf<OverlayPlacement>([
+export const overlayPlacementDef = IxPropTypes.oneOf<OverlayPlacement>([
   'topStart',
   'top',
   'topEnd',
@@ -21,7 +21,7 @@ const overlayPlacementDef = IxPropTypes.oneOf<OverlayPlacement>([
   'leftEnd',
 ])
 
-const overlayTriggerDef = IxPropTypes.oneOf<OverlayTrigger>(['click', 'hover', 'focus', 'contextmenu', 'manual'])
+export const overlayTriggerDef = IxPropTypes.oneOf<OverlayTrigger>(['click', 'hover', 'focus', 'contextmenu', 'manual'])
 
 export const overlayProps = {
   visible: IxPropTypes.bool,

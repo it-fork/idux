@@ -28,6 +28,7 @@ import type {
   ListConfig,
   FormConfig,
   PaginationConfig,
+  TooltipConfig,
 } from './types'
 
 import { shallowReactive } from 'vue'
@@ -151,6 +152,15 @@ const statistic = shallowReactive<StatisticConfig>({
   formatter: numFormatter,
 })
 
+const tooltip = shallowReactive<TooltipConfig>({
+  placement: 'top',
+  trigger: 'hover',
+  showDelay: 100,
+  hideDelay: 100,
+  destroyOnHide: false,
+  autoAdjust: true,
+})
+
 // --------------------- Feedback ---------------------
 const message = shallowReactive<MessageConfig>({
   duration: 3000,
@@ -215,6 +225,7 @@ export const defaultConfig: GlobalConfig = {
   collapse,
   image,
   statistic,
+  tooltip,
   // Feedback
   message,
   result,
