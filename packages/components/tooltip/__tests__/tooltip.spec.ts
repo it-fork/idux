@@ -18,23 +18,23 @@ describe('Tooltip.vue', () => {
     jest.spyOn(console, 'warn').mockImplementation(() => {})
     const tooltipWrapper = TooltipMount({
       slots: {
-        default: <span id="trigger">Hello world</span>,
+        default: '<div id="trigger">Trigger</div>',
       },
       props: {
-        title: 'prompt text',
+        title: 'Title',
       },
     })
     await tooltipWrapper.get('#trigger').trigger('mouseenter')
     await wait(100)
-    expect(document.querySelector('.ix-tooltip')!.getAttribute('placement')).toEqual('top')
+    expect(document.querySelector('.ix-tooltip')!.getAttribute('class')).toContain('ix-overlay-top')
 
     await tooltipWrapper.setProps({ placement: 'bottom' })
-    expect(document.querySelector('.ix-tooltip')!.getAttribute('placement')).toEqual('bottom')
+    expect(document.querySelector('.ix-tooltip')!.getAttribute('class')).toContain('ix-overlay-bottom')
 
     await tooltipWrapper.setProps({ placement: 'left' })
-    expect(document.querySelector('.ix-tooltip')!.getAttribute('placement')).toEqual('left')
+    expect(document.querySelector('.ix-tooltip')!.getAttribute('class')).toContain('ix-overlay-left')
 
     await tooltipWrapper.setProps({ placement: 'right' })
-    expect(document.querySelector('.ix-tooltip')!.getAttribute('placement')).toEqual('right')
+    expect(document.querySelector('.ix-tooltip')!.getAttribute('class')).toContain('ix-overlay-right')
   })
 })
