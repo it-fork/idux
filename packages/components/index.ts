@@ -25,6 +25,7 @@ import { IxRate } from './rate'
 import { IxSelect, IxOption, IxOptionGroup } from './select'
 import { IxSwitch } from './switch'
 // import Data Display
+import { IxPopover } from './popover'
 import { IxTooltip } from './tooltip'
 import { IxCollapse, IxCollapsePanel } from './collapse'
 import { IxSteps, IxStep } from './steps'
@@ -81,6 +82,7 @@ const components = [
   IxOptionGroup,
   IxSwitch,
   // components Data Display
+  IxPopover,
   IxTooltip,
   IxCollapse,
   IxCollapsePanel,

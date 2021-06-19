@@ -1,7 +1,9 @@
-import { mount, MountingOptions, VueWrapper } from '@vue/test-utils'
+import type { MountingOptions } from '@vue/test-utils'
+import type { TooltipProps } from '../src/types'
+
+import { mount, VueWrapper } from '@vue/test-utils'
 import { renderWork, wait } from '@tests'
 import IxTooltip from '../src/Tooltip.vue'
-import { TooltipProps } from '../src/types'
 
 describe('Tooltip.vue', () => {
   let TooltipMount: (options?: MountingOptions<Partial<TooltipProps>>) => VueWrapper<InstanceType<typeof IxTooltip>>

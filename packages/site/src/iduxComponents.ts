@@ -23,6 +23,7 @@ import { IxRate } from '@idux/components/rate'
 import { IxSelect, IxOption, IxOptionGroup } from '@idux/components/select'
 import { IxSwitch } from '@idux/components/switch'
 // import Data Display
+import { IxPopover } from '@idux/components/popover'
 import { IxTooltip } from '@idux/components/tooltip'
 import { IxCollapse, IxCollapsePanel } from '@idux/components/collapse'
 import { IxSteps, IxStep } from '@idux/components/steps'
@@ -80,6 +81,7 @@ const components = [
   IxOptionGroup,
   IxSwitch,
   // components Data Display
+  IxPopover,
   IxTooltip,
   IxCollapse,
   IxCollapsePanel,
