@@ -185,6 +185,15 @@ export interface TooltipConfig {
   autoAdjust: boolean
 }
 
+export interface PopoverConfig {
+  placement: OverlayPlacement
+  trigger: OverlayTrigger
+  showDelay: number
+  hideDelay: number
+  destroyOnHide: boolean
+  autoAdjust: boolean
+}
+
 // Feedback
 export interface MessageConfig {
   duration: number
@@ -261,6 +270,7 @@ export interface GlobalConfig {
   statistic: StatisticConfig
   steps: StepsConfig
   tooltip: TooltipConfig
+  popover: PopoverConfig
   // Feedback
   message: MessageConfig
   result: ResultConfig
