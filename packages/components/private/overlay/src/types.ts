@@ -39,6 +39,8 @@ export const overlayProps = {
   visibleTransition: IxPropTypes.string.def('ix-fade-fast'),
   destroyOnHide: IxPropTypes.bool,
   clsPrefix: IxPropTypes.string.def('ix-overlay'),
+  'onUpdate:visible': IxPropTypes.func<(visible: boolean) => void>().def(() => {}),
+  'onUpdate:placement': IxPropTypes.func<(placement: OverlayPlacement) => void>().def(() => {}),
 }
 
 export type OverlayProps = IxExtractPropTypes<typeof overlayProps>

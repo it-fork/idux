@@ -30,7 +30,6 @@ export default defineComponent({
     const config = useConfig()
     const visibility = useVisibility()
     const offset = useOffset(config)
-    console.log(offset)
 
     return { config, visibility, offset }
   },

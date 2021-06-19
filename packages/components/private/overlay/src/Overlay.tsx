@@ -5,7 +5,7 @@ import { getFirstValidNode, getSlotNodes } from '@idux/cdk/utils'
 import { IxPortal } from '@idux/cdk/portal'
 
 import { overlayProps } from './types'
-import { useLogger, useRenderValid } from './hooks'
+import { useLogger, useRenderValid, useWatch } from './hooks'
 import { getOverlayOptions } from './utils'
 
 export default defineComponent({
@@ -23,11 +23,11 @@ export default defineComponent({
       triggerEvents,
       visibility,
       placement,
-      // update,
+      update,
     } = useOverlay(getOverlayOptions(props))
     const renderValid = useRenderValid()
 
-    // todo output events
+    useWatch(visibility, placement, update)
 
     onMounted(initialize)
 
