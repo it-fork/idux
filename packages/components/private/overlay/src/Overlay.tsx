@@ -44,6 +44,7 @@ export default defineComponent({
       visibleTransition,
       showArrow,
       placement,
+      destroyOnHide,
     } = this
 
     if (!renderValid) {
@@ -62,9 +63,21 @@ export default defineComponent({
         {trigger}
         <IxPortal target={`${clsPrefix}-container`}>
           <Transition name={visibleTransition}>
-            {visibility && (
+            {destroyOnHide ? (
+              visibility && (
+                <div
+                  ref="overlayRef"
+                  class={[clsPrefix, 'ix-overlay', `ix-overlay-${kebabCase(placement)}`]}
+                  {...overlayEvents}
+                >
+                  {showArrow && <div class={['ix-overlay-arrow', `${clsPrefix}-arrow`]} />}
+                  <div class={`${clsPrefix}-content`}>{overlay}</div>
+                </div>
+              )
+            ) : (
               <div
                 ref="overlayRef"
+                v-show={visibility}
                 class={[clsPrefix, 'ix-overlay', `ix-overlay-${kebabCase(placement)}`]}
                 {...overlayEvents}
               >

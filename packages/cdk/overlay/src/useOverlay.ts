@@ -40,6 +40,9 @@ export function useOverlay<TE extends OverlayElement = OverlayElement, OE extend
     if (!triggerElement || !overlayElement) {
       return
     }
+    if (!visibility.value) {
+      return
+    }
     initOverlay(overlayElement, triggerElement, eventOptions)
   }
 
