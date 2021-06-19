@@ -18,23 +18,24 @@ describe('Popover.vue', () => {
     jest.spyOn(console, 'warn').mockImplementation(() => {})
     const popoverWrapper = PopoverMount({
       slots: {
-        default: <span id="trigger">Hello world</span>,
+        default: '<span id="trigger">Trigger</span>',
       },
       props: {
-        title: 'prompt text',
+        title: 'Title',
+        content: 'Content',
       },
     })
     await popoverWrapper.get('#trigger').trigger('mouseenter')
     await wait(100)
-    expect(document.querySelector('.ix-popover')!.getAttribute('placement')).toEqual('top')
+    expect(document.querySelector('.ix-popover')!.getAttribute('class')).toContain('ix-overlay-top')
 
     await popoverWrapper.setProps({ placement: 'bottom' })
-    expect(document.querySelector('.ix-popover')!.getAttribute('placement')).toEqual('bottom')
+    expect(document.querySelector('.ix-popover')!.getAttribute('class')).toContain('ix-overlay-bottom')
 
     await popoverWrapper.setProps({ placement: 'left' })
-    expect(document.querySelector('.ix-popover')!.getAttribute('placement')).toEqual('left')
+    expect(document.querySelector('.ix-popover')!.getAttribute('class')).toContain('ix-overlay-left')
 
     await popoverWrapper.setProps({ placement: 'right' })
-    expect(document.querySelector('.ix-popover')!.getAttribute('placement')).toEqual('right')
+    expect(document.querySelector('.ix-popover')!.getAttribute('class')).toContain('ix-overlay-right')
   })
 })
