@@ -31,7 +31,7 @@ export const overlayProps = {
   trigger: overlayTriggerDef,
   allowEnter: IxPropTypes.bool,
   autoAdjust: IxPropTypes.bool,
-  offset: (IxPropTypes.array as unknown) as VueTypeDef<[number, number]>,
+  offset: (IxPropTypes.array() as unknown) as VueTypeDef<[number, number]>,
   hideDelay: IxPropTypes.number,
   showDelay: IxPropTypes.number,
   showArrow: IxPropTypes.bool.def(true),

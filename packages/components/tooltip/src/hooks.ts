@@ -32,3 +32,17 @@ export function useVisibility(): WritableComputedRef<boolean> {
     },
   })
 }
+
+export function useOffset(config: ComputedRef<TooltipConfig>): ComputedRef<[number, number]> {
+  return computed(() => {
+    if (config.value.placement.startsWith('top')) {
+      return [0, -5]
+    } else if (config.value.placement.startsWith('bottom')) {
+      return [0, 5]
+    } else if (config.value.placement.startsWith('left')) {
+      return [-5, 0]
+    } else {
+      return [5, 0]
+    }
+  })
+}

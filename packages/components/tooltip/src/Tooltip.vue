@@ -1,5 +1,12 @@
 <template>
-  <ix-overlay v-model:visible="visibility" cls-prefix="ix-tooltip" allow-enter scroll-strategy="close" v-bind="config">
+  <ix-overlay
+    v-model:visible="visibility"
+    cls-prefix="ix-tooltip"
+    allow-enter
+    scroll-strategy="close"
+    v-bind="config"
+    :offset="offset"
+  >
     <template #trigger>
       <slot />
     </template>
@@ -13,7 +20,7 @@
 import { defineComponent } from 'vue'
 import { IxOverlay } from '@idux/components/private/overlay'
 import { tooltipProps } from './types'
-import { useConfig, useVisibility } from './hooks'
+import { useConfig, useOffset, useVisibility } from './hooks'
 
 export default defineComponent({
   name: 'IxTooltip',
@@ -22,8 +29,10 @@ export default defineComponent({
   setup() {
     const config = useConfig()
     const visibility = useVisibility()
+    const offset = useOffset(config)
+    console.log(offset)
 
-    return { config, visibility }
+    return { config, visibility, offset }
   },
 })
 </script>
