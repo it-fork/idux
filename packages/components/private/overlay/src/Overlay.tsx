@@ -13,6 +13,7 @@ import {
   withDirectives,
 } from 'vue'
 import { kebabCase } from 'lodash'
+import { clickOutside } from '@idux/cdk/click-outside'
 import { useOverlay } from '@idux/cdk/overlay'
 import { getFirstValidNode, getSlotNodes } from '@idux/cdk/utils'
 import { IxPortal } from '@idux/cdk/portal'
@@ -23,6 +24,7 @@ import { getOverlayOptions } from './utils'
 export default defineComponent({
   name: 'IxOverlay',
   components: { IxPortal },
+  directives: { clickOutside },
   props: overlayProps,
   setup(props) {
     useLogger()

@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <ix-popover v-model:visible="visible" title="Title" content="Content">
-      <span>Tooltip will show when it's click.</span>
-    </ix-popover>
-    <ix-button @click.stop="toggle">toggle</ix-button>
-  </div>
+  <ix-popover v-model:visible="visible" title="Title" content="Content">
+    <span>Tooltip will show when it's click.</span>
+  </ix-popover>
+  <ix-button @click.stop="toggle">toggle</ix-button>
 </template>
 
 <script lang="ts">
@@ -14,7 +12,7 @@ export default defineComponent({
   name: 'VModel',
 
   setup() {
-    const visible = ref(true)
+    const visible = ref(false)
 
     const toggle = () => {
       visible.value = !visible.value
