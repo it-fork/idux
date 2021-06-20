@@ -13,10 +13,8 @@ import { IxDivider } from './divider'
 import { IxSpace } from './space'
 import { IxRow, IxCol } from './grid'
 // import Navigation
-import { IxDropdown } from './dropdown'
 import { IxPagination } from './pagination'
 import { IxAffix } from './affix'
-import { IxMenu, IxMenuItem, IxMenuItemGroup, IxMenuDivider, IxSubMenu } from './menu'
 // import Data Entry
 import { IxForm, IxFormItem, IxFormWrapper } from './form'
 import { IxCheckbox, IxCheckboxGroup } from './checkbox'
@@ -59,14 +57,8 @@ const components = [
   IxRow,
   IxCol,
   // components Navigation
-  IxDropdown,
   IxPagination,
   IxAffix,
-  IxMenu,
-  IxMenuItem,
-  IxMenuItemGroup,
-  IxMenuDivider,
-  IxSubMenu,
   // components Data Entry
   IxForm,
   IxFormItem,

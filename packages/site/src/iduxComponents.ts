@@ -11,10 +11,8 @@ import { IxDivider } from '@idux/components/divider'
 import { IxSpace } from '@idux/components/space'
 import { IxRow, IxCol } from '@idux/components/grid'
 // import Navigation
-import { IxDropdown } from '@idux/components/dropdown'
 import { IxPagination } from '@idux/components/pagination'
 import { IxAffix } from '@idux/components/affix'
-import { IxMenu, IxMenuItem, IxMenuItemGroup, IxMenuDivider, IxSubMenu } from '@idux/components/menu'
 // import Data Entry
 import { IxForm, IxFormItem, IxFormWrapper } from '@idux/components/form'
 import { IxCheckbox, IxCheckboxGroup } from '@idux/components/checkbox'
@@ -58,14 +56,8 @@ const components = [
   IxRow,
   IxCol,
   // components Navigation
-  IxDropdown,
   IxPagination,
   IxAffix,
-  IxMenu,
-  IxMenuItem,
-  IxMenuItemGroup,
-  IxMenuDivider,
-  IxSubMenu,
   // components Data Entry
   IxForm,
   IxFormItem,
