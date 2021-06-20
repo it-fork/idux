@@ -30,6 +30,7 @@ import type {
   PaginationConfig,
   TooltipConfig,
   PopoverConfig,
+  DropdownConfig,
 } from './types'
 
 import { shallowReactive } from 'vue'
@@ -59,6 +60,10 @@ const space = shallowReactive<SpaceConfig>({ size: 'small' })
 const row = shallowReactive<RowConfig>({ wrap: true })
 
 // --------------------- Navigation ---------------------
+const dropdown = shallowReactive<DropdownConfig>({
+  placement: 'bottomStart',
+  trigger: 'hover',
+})
 
 const menu = shallowReactive<MenuConfig>({
   indent: 24,
@@ -218,6 +223,7 @@ export const defaultConfig: GlobalConfig = {
   space,
   row,
   // Navigation
+  dropdown,
   menu,
   subMenu,
   pagination,

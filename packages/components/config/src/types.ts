@@ -37,6 +37,12 @@ export interface RowConfig {
   wrap: boolean
 }
 
+// Navigation
+export interface DropdownConfig {
+  placement: OverlayPlacement
+  trigger: OverlayTrigger
+}
+
 export type MenuTheme = 'light' | 'dark'
 export interface MenuConfig {
   indent: number
@@ -251,6 +257,7 @@ export interface GlobalConfig {
   space: SpaceConfig
   row: RowConfig
   // Navigation
+  dropdown: DropdownConfig
   menu: MenuConfig
   subMenu: SubMenuConfig
   pagination: PaginationConfig
