@@ -1,6 +1,6 @@
 import { computed, defineComponent } from 'vue'
 import { getSlotNodes } from '@idux/cdk/utils'
-import { useSlots } from '../hooks'
+import { useSlots, useSubMenuStateProvider } from '../hooks'
 import { useStateProvider } from '../../menu/hooks'
 
 export default defineComponent({
@@ -8,7 +8,13 @@ export default defineComponent({
   setup() {
     const slots = useSlots()
     const stateProvider = useStateProvider()
-    const className = computed(() => ['ix-menu-vertical', 'ix-menu-content', `ix-menu-${stateProvider.value.theme}`])
+    const subStateProvider = useSubMenuStateProvider()
+    const className = computed(() => [
+      'ix-menu-vertical',
+      'ix-menu-overlay',
+      `ix-menu-${stateProvider.value.theme}`,
+      subStateProvider.value.overlayClass,
+    ])
 
     return { slots, className }
   },
