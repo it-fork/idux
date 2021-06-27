@@ -7,14 +7,14 @@ export const menuStateProvider: InjectionKey<MenuStateProvider> = Symbol('menuSt
 
 export type MenuSelectProvider = ComputedRef<{
   selected: (string | number)[]
-  handleSelect(select: string | number): void
+  onSelect(select: string | number): void
 }>
 
 export const menuSelectProvider: InjectionKey<MenuSelectProvider> = Symbol('menuSelect')
 
 export type MenuOpenProvider = ComputedRef<{
   opened: (string | number)[]
-  handleOpen(open: string | number): void
+  onOpen(open: string | number): void
 }>
 
 export const menuOpenProvider: InjectionKey<MenuOpenProvider> = Symbol('menuOpen')

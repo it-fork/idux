@@ -1,8 +1,8 @@
 import type { App, DefineComponent } from 'vue'
 
-import { IxMenu } from './src'
+import { IxMenu, IxMenuItem } from './src'
 
-const components = [IxMenu]
+const components = [IxMenu, IxMenuItem]
 
 components.forEach(component => {
   component.install = (app: App & DefineComponent): void => {
@@ -10,6 +10,6 @@ components.forEach(component => {
   }
 })
 
-export { IxMenu }
+export { IxMenu, IxMenuItem }
 
-export type { MenuInstance, MenuProps } from './src'
+export type { MenuInstance, MenuProps, MenuItemInstance, MenuItemProps } from './src'

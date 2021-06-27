@@ -56,7 +56,7 @@ export function useSelectProvider(state?: MenuState): MenuSelectProvider | void 
       menuSelectProvider,
       computed(() => ({
         selected: [],
-        handleSelect: () => {},
+        onSelect: () => {},
       })),
     )
   }
@@ -87,7 +87,7 @@ export function useSelectProvider(state?: MenuState): MenuSelectProvider | void 
 
   provide(
     menuSelectProvider,
-    computed(() => ({ selected: selected.value, handleSelect })),
+    computed(() => ({ selected: selected.value, onSelect: handleSelect })),
   )
 }
 
@@ -99,7 +99,7 @@ export function useOpenProvider(state?: MenuState): MenuOpenProvider | void {
       menuOpenProvider,
       computed(() => ({
         opened: [],
-        handleOpen: () => {},
+        onOpen: () => {},
       })),
     )
   }
@@ -124,6 +124,6 @@ export function useOpenProvider(state?: MenuState): MenuOpenProvider | void {
 
   provide(
     menuOpenProvider,
-    computed(() => ({ opened: opened.value, handleOpen })),
+    computed(() => ({ opened: opened.value, onOpen: handleOpen })),
   )
 }
