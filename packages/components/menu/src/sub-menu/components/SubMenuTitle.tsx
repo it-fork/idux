@@ -41,7 +41,6 @@ export default defineComponent({
   },
   render() {
     const { slots, hasIcon, hasSuffix, subMenuStateProvider, rotate, handleClick, handleHover } = this
-
     const icon = getElement(slots, subMenuStateProvider, 'icon')
     const title = getElement(slots, subMenuStateProvider, 'title')
     const suffix = getElement(slots, subMenuStateProvider, 'suffix', { rotate })
@@ -70,9 +69,10 @@ function getElement(
   key: Exclude<keyof UnwrapRef<SubMenuSlotsProvider>, 'default'>,
   extraProps: Record<string, any> = {},
 ) {
-  return getFirstValidNode(getSlotNodes(slots, key)) ?? key === 'title' ? (
-    state.title
-  ) : (
-    <IxIcon name={state[key]} {...extraProps} />
-  )
+  const vNode = getFirstValidNode(getSlotNodes(slots, key))
+  if (vNode) {
+    return vNode
+  }
+
+  return key === 'title' ? state.title : <IxIcon name={state[key]} {...extraProps} />
 }
