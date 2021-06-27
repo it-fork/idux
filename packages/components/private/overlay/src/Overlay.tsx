@@ -106,9 +106,6 @@ function getTrigger(
   overlay: OverlayElement | null,
 ) {
   const overlayElement = convertElement(ref(overlay))
-  if (!overlayElement) {
-    return null
-  }
   const element = cloneVNode(getFirstValidNode(getSlotNodes(slots, 'trigger'))!, extraProps)
   if (props.trigger === 'click') {
     return withDirectives(element, [

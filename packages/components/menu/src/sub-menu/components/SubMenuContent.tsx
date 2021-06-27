@@ -1,10 +1,11 @@
 import { defineComponent } from 'vue'
 import { IxOverlay } from '@idux/components/private/overlay'
 import IxSubMenuTitle from './SubMenuTitle'
+import IxSubMenuOverlay from './SubMenuOverlay'
 
 export default defineComponent({
   name: 'IxSubMenuContent',
-  components: { IxOverlay, IxSubMenuTitle },
+  components: { IxOverlay, IxSubMenuTitle, IxSubMenuOverlay },
   setup() {},
   render() {
     return (
@@ -18,7 +19,7 @@ export default defineComponent({
         hideDelay={30}
         showArrow={false}
       >
-        {{ trigger: () => <IxSubMenuTitle />, overlay: () => <span>123123123</span> }}
+        {{ trigger: () => <IxSubMenuTitle />, overlay: () => <IxSubMenuOverlay /> }}
       </IxOverlay>
     )
   },

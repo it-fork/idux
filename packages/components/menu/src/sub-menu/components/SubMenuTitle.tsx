@@ -43,7 +43,7 @@ export default defineComponent({
     const { slots, hasIcon, hasSuffix, subMenuStateProvider, rotate, handleClick, handleHover } = this
 
     const icon = getElement(slots, subMenuStateProvider, 'icon')
-    const title = getElement(slots, subMenuStateProvider, 'default')
+    const title = getElement(slots, subMenuStateProvider, 'title')
     const suffix = getElement(slots, subMenuStateProvider, 'suffix', { rotate })
 
     return (
@@ -67,10 +67,10 @@ function useHasElement(
 function getElement(
   slots: UnwrapRef<SubMenuSlotsProvider>,
   state: UnwrapRef<SubMenuState>,
-  key: keyof UnwrapRef<SubMenuSlotsProvider>,
+  key: Exclude<keyof UnwrapRef<SubMenuSlotsProvider>, 'default'>,
   extraProps: Record<string, any> = {},
 ) {
-  return getFirstValidNode(getSlotNodes(slots, key)) ?? key === 'default' ? (
+  return getFirstValidNode(getSlotNodes(slots, key)) ?? key === 'title' ? (
     state.title
   ) : (
     <IxIcon name={state[key]} {...extraProps} />

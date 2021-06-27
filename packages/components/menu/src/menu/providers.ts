@@ -1,7 +1,9 @@
 import type { ComputedRef, InjectionKey, UnwrapRef } from 'vue'
 import type { MenuState } from './hooks'
 
-export type MenuStateProvider = ComputedRef<Pick<UnwrapRef<MenuState>, 'collapsed' | 'indent' | 'mode' | 'onClick'>>
+export type MenuStateProvider = ComputedRef<
+  Pick<UnwrapRef<MenuState>, 'collapsed' | 'indent' | 'mode' | 'onClick' | 'theme'>
+>
 
 export const menuStateProvider: InjectionKey<MenuStateProvider> = Symbol('menuState')
 
