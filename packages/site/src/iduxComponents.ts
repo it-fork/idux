@@ -11,7 +11,7 @@ import { IxDivider } from '@idux/components/divider'
 import { IxSpace } from '@idux/components/space'
 import { IxRow, IxCol } from '@idux/components/grid'
 // import Navigation
-import { IxMenu, IxMenuItem, IxMenuDivider, IxMenuGroup } from '@idux/components/menu'
+import { IxMenu, IxMenuItem, IxMenuDivider, IxMenuGroup, IxSubMenu } from '@idux/components/menu'
 import { IxPagination } from '@idux/components/pagination'
 import { IxAffix } from '@idux/components/affix'
 // import Data Entry
@@ -61,6 +61,7 @@ const components = [
   IxMenuItem,
   IxMenuDivider,
   IxMenuGroup,
+  IxSubMenu,
   IxPagination,
   IxAffix,
   // components Data Entry

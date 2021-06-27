@@ -3,7 +3,7 @@
     <span v-if="$slots.icon || icon" class="ix-menu-item-icon">
       <slot name="icon"><ix-icon :name="icon" /></slot>
     </span>
-    <span class="ix-menu-item0content">
+    <span class="ix-menu-item-content">
       <slot>{{ title }}</slot>
     </span>
   </li>
