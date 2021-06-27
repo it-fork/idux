@@ -4,7 +4,7 @@ import { defineComponent } from 'vue'
 import { subMenuProps } from './types'
 import { useClassName, useIsInline, useSlots, useState, useStatus, useSubMenuStateProvider, useValue } from './hooks'
 
-import SubMenuContent from './components/SubMenuContent.vue'
+import SubMenuContent from './components/SubMenuContent'
 import SubMenuInlineContent from './components/SubMenuInlineContent'
 
 export default defineComponent({

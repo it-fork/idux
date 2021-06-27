@@ -9,6 +9,7 @@ import type {
 } from './types'
 
 import { computed, reactive, ref, watch } from 'vue'
+import { isUndefined } from '@idux/cdk/utils'
 import { mapTriggerEvents } from './utils'
 
 export function useTimer(): Ref<number | null> {
@@ -16,7 +17,7 @@ export function useTimer(): Ref<number | null> {
 }
 
 export function useState(options: OverlayOptions): Required<OverlayOptions> {
-  const defaultOptions: Required<OverlayOptions> = {
+  const state = reactive<Required<OverlayOptions>>({
     visible: true,
     scrollStrategy: 'none',
     disabled: false,
@@ -27,8 +28,18 @@ export function useState(options: OverlayOptions): Required<OverlayOptions> {
     offset: [0, 0],
     hideDelay: 0,
     showDelay: 0,
+  })
+
+  for (const [key, value] of Object.entries(options)) {
+    if (isUndefined(value)) {
+      continue
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    state[key] = value
   }
-  return reactive(Object.assign({}, defaultOptions, options))
+
+  return state
 }
 
 export function useVisibility(state: Required<OverlayOptions>): ComputedRef<boolean> {
