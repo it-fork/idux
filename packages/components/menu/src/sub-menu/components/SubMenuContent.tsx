@@ -9,7 +9,7 @@ export default defineComponent({
   render() {
     return (
       <IxOverlay
-        visible="false"
+        visible={false}
         trigger="hover"
         clsPrefix="ix-menu"
         allowEnter

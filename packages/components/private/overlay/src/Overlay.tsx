@@ -1,17 +1,8 @@
+import type { Slots } from 'vue'
 import type { OverlayElement } from '@idux/cdk/overlay'
 import type { OverlayProps } from './types'
 
-import {
-  cloneVNode,
-  computed,
-  defineComponent,
-  getCurrentInstance,
-  onMounted,
-  Ref,
-  resolveDirective,
-  Transition,
-  withDirectives,
-} from 'vue'
+import { cloneVNode, defineComponent, onMounted, ref, resolveDirective, Transition, withDirectives } from 'vue'
 import { kebabCase } from 'lodash'
 import { clickOutside } from '@idux/cdk/click-outside'
 import { useOverlay } from '@idux/cdk/overlay'
@@ -20,6 +11,7 @@ import { IxPortal } from '@idux/cdk/portal'
 import { overlayProps } from './types'
 import { useLogger, useRenderValid, useWatch } from './hooks'
 import { getOverlayOptions } from './utils'
+import { convertElement } from '@idux/cdk/overlay/src/utils'
 
 export default defineComponent({
   name: 'IxOverlay',
@@ -41,16 +33,18 @@ export default defineComponent({
       hide,
     } = useOverlay(getOverlayOptions(props))
     const renderValid = useRenderValid()
-    const triggerElement = useTrigger({ ...triggerEvents.value, ref: triggerRef }, hide, overlayRef)
 
     useWatch(visibility, placement, update)
 
     onMounted(initialize)
 
-    return { overlayRef, overlayEvents, triggerRef, visibility, renderValid, placement, triggerElement }
+    return { triggerEvents, hide, overlayRef, overlayEvents, triggerRef, visibility, renderValid, placement }
   },
   render() {
     const {
+      overlayRef,
+      triggerEvents,
+      hide,
       renderValid,
       $slots,
       overlayEvents,
@@ -60,18 +54,19 @@ export default defineComponent({
       showArrow,
       placement,
       destroyOnHide,
-      triggerElement,
+      $props,
     } = this
 
     if (!renderValid) {
       return null
     }
 
+    const trigger = getTrigger($props, $slots, { ref: 'triggerRef', ...triggerEvents }, hide, overlayRef)
     const overlay = getFirstValidNode(getSlotNodes($slots, 'overlay'))!
 
     return (
       <>
-        {triggerElement}
+        {trigger}
         <IxPortal target={`${clsPrefix}-container`}>
           <Transition name={visibleTransition}>
             {destroyOnHide ? (
@@ -103,25 +98,28 @@ export default defineComponent({
   },
 })
 
-function useTrigger(extraProps: Record<string, any>, hide: () => void, trigger: Ref<OverlayElement | null>) {
-  const { props, slots } = getCurrentInstance()!
-  return computed(() => {
-    const element = cloneVNode(getFirstValidNode(getSlotNodes(slots, 'trigger'))!, extraProps)
-    if ((props as OverlayProps).trigger === 'click') {
-      return (
-        <>
-          {withDirectives(element, [
-            [
-              resolveDirective('click-outside')!,
-              {
-                exclude: [trigger.value],
-                handler: () => hide(),
-              },
-            ],
-          ])}
-        </>
-      )
-    }
-    return <>{element}</>
-  })
+function getTrigger(
+  props: OverlayProps,
+  slots: Slots,
+  extraProps: Record<string, any>,
+  hide: () => void,
+  overlay: OverlayElement | null,
+) {
+  const overlayElement = convertElement(ref(overlay))
+  if (!overlayElement) {
+    return null
+  }
+  const element = cloneVNode(getFirstValidNode(getSlotNodes(slots, 'trigger'))!, extraProps)
+  if (props.trigger === 'click') {
+    return withDirectives(element, [
+      [
+        resolveDirective('click-outside')!,
+        {
+          exclude: [overlayElement],
+          handler: () => hide(),
+        },
+      ],
+    ])
+  }
+  return element
 }

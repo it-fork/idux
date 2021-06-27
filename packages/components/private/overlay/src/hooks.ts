@@ -7,7 +7,6 @@ import { OverlayProps } from './types'
 
 export function useLogger(): void {
   const { slots } = getCurrentInstance()!
-
   if (!hasSlot(slots, 'trigger')) {
     Logger.error('Component must contain trigger slot.')
   }
