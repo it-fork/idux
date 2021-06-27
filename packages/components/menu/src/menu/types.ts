@@ -12,6 +12,7 @@ export const menuProps = {
   multiple: IxPropTypes.bool.def(false),
   singleOpen: IxPropTypes.bool.def(false),
   selectable: IxPropTypes.bool.def(true),
+  closeAfterClick: IxPropTypes.bool.def(false),
   theme: IxPropTypes.oneOf<MenuTheme>(['light', 'dark']),
   selected: IxPropTypes.arrayOf(IxPropTypes.oneOfType([IxPropTypes.string, IxPropTypes.number])).def(() => []),
   'onUpdate:selected': IxPropTypes.func<(selected: (number | string)[]) => void>().def(() => {}),

@@ -32,6 +32,7 @@ single: true
 | `multiple` | 是否支持多选 | `boolean` | `false` | - | - |
 | `singleOpen` | 是否只展开当前项 | `boolean` | `false` | - | - |
 | `selectable` | 是否允许选中 | `boolean` | `true` | - | - |
+| `closeAfterClick` | 点击后是否关闭子菜单 | `boolean` | `false` | - | - |
 | `theme` | 主题颜色 | `light` | `light \| dark` | ✅ | - |
 | `onClick` | 点击子项后的回调 | `(event: MouseEvent, index: number \| string) => void` | `() => {}` | - | - |
 
@@ -70,6 +71,6 @@ single: true
 | `icon` | 菜单图标| `string \| v-slot:icon` | - | - |
 | `title` | 菜单标题 | `string \| v-slot:title`  | - | - |
 
-### ix-menu-divider
+### `ix-menu-divider`
 
 菜单分割线。
