@@ -1,0 +1,94 @@
+@import '../../style/default.less';
+@import './mode.less';
+
+@menu-prefix: ~'@{idux-prefix}-menu';
+
+.@{menu-prefix} {
+  color: @menu-text-color;
+  background-color: @menu-bg-color;
+  transition: background-color @transition-duration-slow, width @transition-duration-slow;
+  display: flex;
+
+  .@{menu-prefix}-group {
+    .@{menu-prefix}-group-title {
+      display: flex;
+      align-items: center;
+      height: @menu-item-height;
+      padding-left: @menu-item-padding-left;
+      padding-right: @menu-item-padding-right;
+      color: @menu-item-group-text-color;
+      font-size: @menu-font-size;
+      .ellipsis();
+
+      .@{menu-prefix}icon {
+        margin-right: @menu-item-icon-margin-right;
+      }
+    }
+  }
+
+  .@{menu-prefix}-sub-title,
+  .@{menu-prefix}-item {
+    position: relative;
+    height: @menu-item-height;
+    padding-left: @menu-item-padding-left;
+    padding-right: @menu-item-padding-right;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background @transition-duration-slow;
+    .ellipsis();
+
+    &:hover {
+      color: @menu-highlight-color;
+      a {
+        color: @menu-highlight-color;
+      }
+    }
+
+    a::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: transparent;
+      content: '';
+    }
+
+    &:hover,
+    &:active {
+      background-color: @menu-highlight-bg-color;
+    }
+
+    &.@{menu-prefix}-selected {
+      color: @menu-highlight-color;
+    }
+
+    &-icon {
+      margin-right: 8px;
+    }
+
+    &.@{menu-prefix}-item-disabled {
+      color: @menu-disabled-color;
+      background-color: @menu-disabled-bg-color;
+      cursor: not-allowed;
+
+      &:hover,
+      &:active {
+        background-color: @menu-disabled-bg-color;
+      }
+    }
+  }
+
+  a {
+    color: @menu-text-color;
+    text-decoration: none;
+  }
+
+  .@{menu-prefix}-sub {
+    &-title-suffix {
+      position: absolute;
+      right: @menu-sub-suffix-icon-right;
+    }
+  }
+}
